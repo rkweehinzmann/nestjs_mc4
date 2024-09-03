@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Param, Query, Body } from '@nestjs/common';
-import { query } from 'express';
-// status lecture 17
+import { CreateUserDto } from './dtos/create-users.dto.users';
+
 
 @Controller('users')
 export class UsersController {
@@ -13,8 +13,8 @@ export class UsersController {
     }
 
     @Post()
-    public createUsers(@Body() myrequest:any){
-        console.log(myrequest)
+    public createUsers(@Body() createUserDto:CreateUserDto){
+        console.log(CreateUserDto)
         return 'You sent a POST request to users endpoint.'
     }
 

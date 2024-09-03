@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsOptional, IsString, Matches, MaxLength, MinLength } from "class-validator"; 
+import { IsEmail, IsNotEmpty, IsOptional, IsString, Matches, MaxLength, MinLength } from "class-validator";
 
 export class CreateUserDto {
     @IsString()
@@ -18,7 +18,7 @@ export class CreateUserDto {
 
     @IsString()
     @MinLength(8)
-    //@Matches(new RegExp('//^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$//'), {message:'Minimum eight characters, at least one uppercase letter, one lowercase letter and one number.'})
+    @Matches(new RegExp('//^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$//'), {message:'Minimum eight characters, at least one uppercase letter, one lowercase letter and one number.'})
     password: string;
 
 }
