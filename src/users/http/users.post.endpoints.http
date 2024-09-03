@@ -5,6 +5,6 @@ Content-Type: application/json
     "firstName": "John",
     "lastName": "The Baptist",
     "email": "iam@theWay.iam",
-    "password": "opensecret"
+    "password": "openSecret1208"
 
 }
