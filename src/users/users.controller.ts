@@ -6,6 +6,7 @@ import { Controller, Get, Post, Param, Query, Body,
  } from '@nestjs/common';
 import { OPTIONAL_PROPERTY_DEPS_METADATA } from '@nestjs/common/constants';
 import { CreateUserDto } from './dtos/create-users.dto.users';
+import { isInstance } from 'class-validator';
 
 @Controller('users')
 export class UsersController {
@@ -28,7 +29,7 @@ export class UsersController {
     @Post()
     public createUsers(
         @Body() createUserDto: CreateUserDto){
-        console.log(createUserDto)
+        console.log(createUserDto instanceof CreateUserDto);
         return 'You sent a POST request to users endpoint.'
     }
 
