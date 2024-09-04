@@ -3,11 +3,13 @@ import { Controller, Get, Post, Param, Query, Body,
     ParseIntPipe,
     DefaultValuePipe,
     ValidationPipe,
+    Patch,
  } from '@nestjs/common';
 import { OPTIONAL_PROPERTY_DEPS_METADATA } from '@nestjs/common/constants';
-import { CreateUserDto } from './dtos/create-users.dto.users';
+import { CreateUserDto } from './dtos/create-users.dto';
 import { isInstance } from 'class-validator';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
+import { PatchUserDto } from './dtos/patch-users.dto';
 
 @Controller('users')
 export class UsersController {
@@ -31,5 +33,9 @@ export class UsersController {
         return 'You sent a POST request to users endpoint.'
     }
 
-
+    @Patch()
+    public patchUser(
+        @Body() PatchUserDto:PatchUserDto
+    )  
+    {}
 }
