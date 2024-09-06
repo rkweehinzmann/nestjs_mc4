@@ -1,5 +1,5 @@
 import { Injectable, Inject, forwardRef } from '@nestjs/common';
-import { AuthService } from 'src/auth/providers/auth/auth.service';
+import { AuthService } from 'src/auth/providers/auth.service';
 import { GetUsersParamDto } from '../dtos/get-users-param.dto';
 
 @Injectable()
