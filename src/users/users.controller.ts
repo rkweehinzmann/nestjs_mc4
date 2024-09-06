@@ -27,7 +27,7 @@ export class UsersController {
         @Query('page', new DefaultValuePipe(3), ParseIntPipe) page: number,
         @Headers() myheader:any,
     ){
-        console.log(getUsersParamDto)
+        //console.log(getUsersParamDto)
         return 'You sent a GET request to users endpoint.'
     }
 
