@@ -10,8 +10,10 @@ import { isInstance } from 'class-validator';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
 import { PatchUserDto } from './dtos/patch-users.dto';
 import { UsersService } from './providers/users.service';
+import { ApiTags, ApiQuery, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('users')
+@ApiTags('Users')
 export class UsersController {
     
     constructor(
@@ -20,6 +22,31 @@ export class UsersController {
     ){}
 
     @Get('/:id?')
+    // ApiOperation for general info about this endpoint
+    @ApiOperation({
+        summary: "Fetches a list of registered users on the app."
+
+    })
+    @ApiResponse({
+        status: 200,
+        description: 'Successfully requested query.'
+    })
+    @ApiQuery({
+    name: 'limit',
+    type: 'number',
+    description: 'maximal number of results returned per query.',
+    required: false,
+    example: 10
+    })
+
+    @ApiQuery({
+        name: 'page',
+        type: 'number',
+        description: 'position of page number you want to be returned.',
+        required: false,
+        example: 1
+        })
+    
     public getUsers(
 
         @Param() getUsersParamDto: GetUsersParamDto, 

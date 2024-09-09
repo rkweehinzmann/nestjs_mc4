@@ -1,7 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { PostsService } from './providers/posts.service';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('posts')
+@ApiTags('Posts')
 export class PostsController {
 
     constructor(
@@ -15,4 +17,9 @@ export class PostsController {
         return this.postsService.findAll(userId)
     }
 
+    @Post()
+    public createPost(@Body() createPostDto:CreatePostDto){
+            console.log(createPostDto instanceof CreatePostDto);
+            return 'You sent a POST request to posts endpoint.'
+    }
 }
