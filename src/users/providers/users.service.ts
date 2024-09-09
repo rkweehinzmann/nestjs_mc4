@@ -10,15 +10,24 @@ export class UsersService {
         @Inject( forwardRef(() => AuthService))
         private readonly authService: AuthService,
     ){}
-public findAll(
-    getUsersParamDto: GetUsersParamDto,
-    limit: number,
-    page: number,
+
+    public findAll(
+     getUsersParamDto: GetUsersParamDto,
+     limit: number,
+     page: number,
 ){
     const isAuth = this.authService.isAuth()
     console.log(isAuth)
-    return isAuth;
-    
+    return [
+        {
+          firstName: 'John',
+          email: 'john@doe.com',
+        },
+        {
+          firstName: 'AlicE',
+          email: 'alice@doe.com',
+        },
+      ];
 }
     /*
     find user by Id
