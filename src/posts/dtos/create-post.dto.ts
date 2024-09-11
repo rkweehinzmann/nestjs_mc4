@@ -19,7 +19,7 @@ export class CreatePostDto{
 
     @IsString()
     @IsNotEmpty()
-    @Matches(/^[a-z0-9] + (?:-[a-z0-9]+)*$/,{
+    @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/,{
         message:'A slug should all be small letters and uses only "-" without spaces. Example "my-url"'
     })
     slug: string;
