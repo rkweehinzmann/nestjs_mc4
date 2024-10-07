@@ -1,3 +1,4 @@
+
 import { Controller, Get, Post, Param, Query, Body,
     Headers,
     ParseIntPipe,
@@ -12,10 +13,11 @@ import { PatchUserDto } from './dtos/patch-users.dto';
 import { UsersService } from './providers/users.service';
 import { ApiTags, ApiQuery, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
+
 @Controller('users')
 @ApiTags('Users')
 export class UsersController {
-    
+
     constructor(
         //Injecting Users Service
         private readonly usersService: UsersService,
