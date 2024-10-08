@@ -14,12 +14,12 @@ export class UsersService {
         // inject auth service
         @Inject( forwardRef(() => AuthService))
         private readonly authService: AuthService,
-*/
+
 
         // inject repository
         @InjectRepository(User)
         private usersRepository:Repository<User>,
-    
+*/    
     ){}
 
     public async createUser(createUserDto: CreateUserDto){

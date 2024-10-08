@@ -23,7 +23,7 @@ import { User } from './users/user.entity';
       database: 'nestjs-blog'
     }), 
   })],
-  controllers: [AppController, UsersController],
-  providers: [AppService, UsersService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
