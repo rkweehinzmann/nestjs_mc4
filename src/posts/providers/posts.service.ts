@@ -5,7 +5,7 @@ import { UsersService } from 'src/users/providers/users.service';
 export class PostsService {
 
     constructor(
-        // Injecting Users Service
+        // Injecting Users Service inter-modular injection
         private readonly usersService: UsersService,
     ){}
     public findAll(userId: string){
