@@ -11,5 +11,6 @@ import { UsersService } from './providers/users.service';
   providers: [UsersService],
   exports: [UsersService],
   imports: [TypeOrmModule.forFeature([User]), forwardRef(() => AuthModule)],
+
 })
 export class UsersModule {}

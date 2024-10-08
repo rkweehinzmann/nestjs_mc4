@@ -8,6 +8,7 @@ import { CreateUserDto } from '../dtos/create-users.dto';
 
 @Injectable()
 export class UsersService {
+
   constructor(
     // inject auth service
     @Inject(forwardRef(() => AuthService))
@@ -22,13 +23,13 @@ export class UsersService {
     // check if user already exists with this email
   }
 
-  public findAll(
-    getUsersParamDto: GetUsersParamDto,
-    limit: number,
-    page: number,
-  ) {
-    const isAuth = this.authService.isAuth();
-    console.log(isAuth);
+    public findAll(
+     getUsersParamDto: GetUsersParamDto,
+     limit: number,
+     page: number,
+){
+    const isAuth = this.authService.isAuth()
+    console.log(isAuth)
     return [
       {
         firstName: 'John',

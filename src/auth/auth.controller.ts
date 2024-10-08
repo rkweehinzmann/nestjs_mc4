@@ -5,6 +5,6 @@ import { AuthService } from './providers/auth.service';
 export class AuthController {
     constructor(
         // injecting auth Service 
-        public readonly authService: AuthService,
+        private readonly authService: AuthService,
     ){}
 }
