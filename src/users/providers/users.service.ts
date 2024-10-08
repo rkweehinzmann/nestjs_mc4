@@ -7,7 +7,7 @@ export class UsersService {
     
     constructor(
         // inject auth service
-        @Inject( forwardRef(() => AuthService))
+        @Inject( forwardRef(()=> AuthService))
         private readonly authService: AuthService,
     ){}
 
@@ -17,7 +17,8 @@ export class UsersService {
      page: number,
 ){
     const isAuth = this.authService.isAuth()
-    console.log(isAuth)
+    console.log(isAuth);
+    
     return [
         {
           firstName: 'John',

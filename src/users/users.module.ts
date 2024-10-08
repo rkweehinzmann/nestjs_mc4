@@ -8,6 +8,6 @@ import { AuthModule } from "src/auth/auth.module";
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService],
-  imports: [forwardRef(()=> AuthModule)]
+  imports: [forwardRef( ()=> AuthModule )]
 })
 export class UsersModule{}

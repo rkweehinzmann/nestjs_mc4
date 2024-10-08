@@ -20,6 +20,6 @@ export class AuthService {
     }
 
     public isAuth() {
-        return true
+        return true;
     }
 }
