@@ -13,18 +13,19 @@ import { UsersModule } from './users/users.module';
     PostsModule,
     AuthModule,
     TypeOrmModule.forRootAsync({
+      // can inject dependencies
       imports: [],
       inject: [],
       useFactory: () => ({
         type: 'postgres',
-        entities: [User],
-        synchronize: true,
+        entities: [User], // typeorm is now aware of User entity
+        synchronize: true, //automatically creates schemas->nnever use in production mode! 
         port: 5432,
         username: 'postgres',
         password: 'Jesus',
         host: 'localhost',
         database: 'nestjs-blog',
-      }),
+      }),// takes in a function "()=>" and returns a config object ({})
     }),
   ],
   controllers: [AppController],

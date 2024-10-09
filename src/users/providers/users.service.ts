@@ -21,6 +21,13 @@ export class UsersService {
 
   public async createUser(createUserDto: CreateUserDto) {
     // check if user already exists with this email
+    const existingUser = await this.usersRepository.findOne({
+      where: { email: createUserDto.email },
+    })
+    // handle exception
+    // create user
+    let newUser = this.usersRepository.create(createUserDto);
+    newUser = await this.usersRepository.save(newUser);
   }
 
     public findAll(
