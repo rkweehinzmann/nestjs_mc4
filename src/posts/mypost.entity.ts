@@ -2,10 +2,10 @@ import { title } from "process";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { postType } from "./dtos/enums/postType.enum";
 import { postStatus } from "./dtos/enums/postStatus.enum";
-import { CreatePostMetaOptionsDto } from "./dtos/create-post-meta-options.dto";
+import { CreatePostMetaOptionsDto } from "../meta-options/dtos/create-post-meta-options.dto";
 
 @Entity()
-export class Post {
+export class MyPost {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -66,7 +66,7 @@ export class Post {
     })
     publishedOn?: Date;
 
-    tags?: string;
+    tags?: string[];
 
     metaOptions?: CreatePostMetaOptionsDto[];
 
