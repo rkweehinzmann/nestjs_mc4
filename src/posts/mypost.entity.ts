@@ -1,8 +1,9 @@
 import { title } from "process";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { postType } from "./dtos/enums/postType.enum";
 import { postStatus } from "./dtos/enums/postStatus.enum";
 import { CreatePostMetaOptionsDto } from "../meta-options/dtos/create-post-meta-options.dto";
+import { MetaOption } from "src/meta-options/meta-option.entity";
 
 @Entity()
 export class MyPost {
@@ -68,7 +69,9 @@ export class MyPost {
 
     tags?: string[];
 
-    metaOptions?: CreatePostMetaOptionsDto[];
+    @OneToOne(()=> MetaOption)
+    @JoinColumn()//mandatory decorator in 1:1 rel, will create a metaoption id in post table
+    metaOptions?: MetaOption;
 
 
 }
