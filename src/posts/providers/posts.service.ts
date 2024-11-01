@@ -32,23 +32,10 @@ export class PostsService {
 
     public async create(@Body() createPostDto: CreatePostDto){
 
-    // create metaOption that comes with the requests. This must exist first. 
-    let metaOptions = createPostDto.metaOptions? this.metaOptionsRepository.create(createPostDto.metaOptions) : null;
-
-    if(metaOptions){
-        await this.metaOptionsRepository.save(metaOptions);
-    }
-
-    // create post
+     // create post
     let post = this.postsRepository.create(createPostDto);
 
-    // add metaOptions to the post
-    if(metaOptions){
-        post.metaOptions = metaOptions;
-    }
-
     // return post to the user
-
     return await this.postsRepository.save(post);
 
     }
