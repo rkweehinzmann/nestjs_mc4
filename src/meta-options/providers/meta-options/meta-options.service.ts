@@ -14,7 +14,10 @@ export class MetaOptionsService {
     ) {}
 
     public async create(createPostMetaOptionsDto: CreatePostMetaOptionsDto) {
+        // in order to create a new metaOption we need a metaOptionRepository, see readonly above
         let metaOption = this.metaOptionsRepository.create(createPostMetaOptionsDto);    
+
+        //saves it to the db
         return await this.metaOptionsRepository.save(metaOption);    
     }
 

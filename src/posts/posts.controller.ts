@@ -28,9 +28,16 @@ export class PostsController {
     })
     @Post()
     public createPost(@Body() createPostDto:CreatePostDto){
-            console.log(createPostDto)
-            return 'You sent a POST request to posts endpoint.'
+        // want to fire create method on postService
+        return this.postsService.create(createPostDto);
     }
+
+
+
+    @ApiResponse({
+        status: 200,
+        description: 'A 200 response if the post is updated successfully'
+    })
 
     @Patch()
     public updatePost(@Body() patchPostDto: PatchPostDto){
