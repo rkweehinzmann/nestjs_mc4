@@ -16,7 +16,7 @@ export class PostsController {
     // GET http://localhost:3000/posts/userId
     @Get('/:userId?')
     public getPosts(@Param('userId') userId:string) {
-        return this.postsService.findAll(userId)
+        return this.postsService.findAll(userId);
     }
 
     @ApiOperation({

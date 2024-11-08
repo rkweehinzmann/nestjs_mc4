@@ -70,7 +70,8 @@ export class MyPost {
     tags?: string[];
 
     @OneToOne(()=> MetaOption, {
-        cascade: true
+        cascade: true,
+        eager: true
     })
     @JoinColumn()//mandatory decorator in 1:1 rel, will create a metaoption id in post table
     metaOptions?: MetaOption;

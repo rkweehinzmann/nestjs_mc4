@@ -32,7 +32,7 @@ export class PostsService {
 
     public async create(@Body() createPostDto: CreatePostDto){
 
-     // create post
+     // create post// due to cascade it creates metaOptions as well
     let post = this.postsRepository.create(createPostDto);
 
     // return post to the user
@@ -41,26 +41,17 @@ export class PostsService {
     }
 
 
-    public findAll(userId: string){
+    public async findAll(userId: string){
         
         // Users Service
         
         // Find user
-        const user = this.usersService.findOneById(userId) 
+        const user = this.usersService.findOneById(userId); 
 
-        // find all his posts
-        return[
-            {
-                user: user,
-                title: '1 Mo',
-                content: 'content A',
-            },
-            {
-
-                user: user,
-                title: '2 Mo',
-                content: 'content B',
-            },
-        ]
+        // how to fetch relationship when metaOption
+        // post is equal to our query
+        let posts = this.postsRepository.find({});
+        return posts;    
     }
+    
 }
