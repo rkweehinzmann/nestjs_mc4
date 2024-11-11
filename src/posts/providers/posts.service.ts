@@ -53,7 +53,6 @@ export class PostsService {
         let posts = this.postsRepository.find({});
         return posts;    
     }
-
     public async delete(id: number){
         //find the post
         let post = await this.postsRepository.findOneBy({ id });
@@ -67,5 +66,4 @@ export class PostsService {
         // confirmation
         return {deleted: true, id};
     }
-    
 }
