@@ -69,9 +69,11 @@ export class MyPost {
 
     tags?: string[];
 
-    @OneToOne(()=> MetaOption, {
+    // second arg makes it a bidirect. rel.
+    @OneToOne(()=> MetaOption, (metaOptions)=> metaOptions.postt , 
+    {
         cascade: true,
-        eager: true
+        eager: true 
     })
     @JoinColumn()//mandatory decorator in 1:1 rel, will create a metaoption id in post table
     metaOptions?: MetaOption;
