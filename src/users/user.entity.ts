@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Post } from '@nestjs/common';
+import { MyPost } from 'src/posts/mypost.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -33,4 +35,9 @@ export class User {
     nullable: false,
   })
   password: string;
+
+
+  @OneToMany(()=>Post, (mypost)=>mypost.author)
+  posts: MyPost[];
 }
+ 
